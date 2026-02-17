@@ -1,2 +1,2 @@
-# md5sum
-powershell md5sum script to verify given a md5 file.
+# powershell md5sum
+You will probably never have to need this, but sometimes you have lots of data on a windows shared disk and you want to verify them upon download. The `bash` cannot find this path, thus you gotta use powershell. That's when this script comes in handy. You give a path and a `md5` file and it will recursively find and match the hashes given an algorithm. Similar to the linux `md5sum` but then in windows powershell.
