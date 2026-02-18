@@ -5,18 +5,35 @@ You will probably never have to need this, but sometimes you have lots of data o
 > [!NOTE] 
 > Test data is available to try it out.
 
-print help message
-```powershell
+## Enabling powershell to execute a script
+```
+# 1. Check current
+Get-ExecutionPolicy
+
+# 2. Set execution for current user
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+## Using the script from command line
+### print help message
+```
 ./md5sum.ps1 -h
 ```
 
-Run with test data
-```powershell
+### Run with test data
+```
 ./md5sum.ps1 -c test/data.md5
 ```
 
-## available options
-Other hash algorithms besides `MD5` are also supported
+### Redirecting the stream to a file
+> [!NOTE] 
+> Stream re-direction is only available in powershell 5.0 see [docs](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_redirection?view=powershell-7.5)
+```
+./md5sum.ps1 -c ./data.md5 -q 6>> md5_out.txt
+```
+
+## Current available options
+Other hash algorithms besides `MD5` are also supported.
 ```
 USAGE:
     .\md5sum.ps1 [-c, -ChecksumFile] [-a, -Algorithm] [-r, -SearchRoot] [-q, -Quiet] [-h]
